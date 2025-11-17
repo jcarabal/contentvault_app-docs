@@ -11,16 +11,29 @@
     <p class="app-description">{{ description }}</p>
     
     <div class="card-links">
-      <a v-for="link in links" :key="link" href="#" class="doc-link">{{ link }}</a>
+      <a 
+        v-for="link in links" 
+        :key="typeof link === 'string' ? link : link.label" 
+        :href="typeof link === 'string' ? '#' : link.url" 
+        class="doc-link"
+        :target="typeof link === 'string' ? '_self' : '_blank'"
+      >
+        {{ typeof link === 'string' ? link : link.label }}
+      </a>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+interface LinkItem {
+  label: string
+  url: string
+}
+
 interface Props {
   title: string
   description: string
-  links: string[]
+  links: (string | LinkItem)[]
   isBeta?: boolean
 }
 

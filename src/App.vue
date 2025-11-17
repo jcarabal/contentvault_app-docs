@@ -28,7 +28,13 @@ import FooterSection from './components/FooterSection.vue'
           <AppCard
             title="VaultTrak"
             description="Secure time tracking for professionals"
-            :links="['Privacy Policy', 'Terms of Service', 'Configuration Guide', 'FAQ', 'Support']"
+            :links="[
+              { label: 'Privacy Policy', url: '/contentvault_app-docs/docs/VaultTrak/PrivacyPolicy.html' },
+              { label: 'Terms of Service', url: '/contentvault_app-docs/docs/VaultTrak/TermsofService.html' },
+              { label: 'Configuration Guide', url: '/contentvault_app-docs/docs/VaultTrak/ConfigurationGuide.html' },
+              { label: 'FAQ', url: '/contentvault_app-docs/docs/VaultTrak/FAQ.html' },
+              { label: 'Support', url: '/contentvault_app-docs/docs/VaultTrak/Support.html' }
+            ]"
           />
           
           <AppCard
